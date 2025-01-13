@@ -1,0 +1,42 @@
+/*
+Node 프로젝트에는 package.josn이 있었음
+내 프로젝트에 대한 기록을 남기고,
+특히 패키지 관리를 해주는 역할을 수행하는 중요한 파일 이였음
+
+스프링 프로젝트에는 bulid.gradle이 있는데
+여기서는 설치를 원한느것을 적어두면 자동으로 다운해주는 역할을 한다.
+*/
+plugins {
+	id 'java'
+	id 'org.springframework.boot' version '3.3.7'
+	id 'io.spring.dependency-management' version '1.1.7'
+}
+
+group = 'com.mysite'
+version = '0.0.1-SNAPSHOT'
+
+java {
+	toolchain {
+		languageVersion = JavaLanguageVersion.of(21)
+	}
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+	developmentOnly 'org.springframework.boot:spring-boot-devtools'
+	compileOnly 'org.projectlombok:lombok' 
+    annotationProcessor 'org.projectlombok:lombok' 
+	runtimeOnly 'com.mysql:mysql-connector-j'
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa' 
+	
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}
