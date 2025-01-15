@@ -16,9 +16,8 @@ group = 'com.mysite'
 version = '0.0.1-SNAPSHOT'
 
 java {
-	toolchain {
-		languageVersion = JavaLanguageVersion.of(21)
-	}
+    sourceCompatibility = '19'
+
 }
 
 repositories {
@@ -41,6 +40,8 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-validation'
 	implementation 'org.springframework.boot:spring-boot-starter-security'
     implementation 'org.thymeleaf.extras:thymeleaf-extras-springsecurity6'
+    implementation 'org.commonmark:commonmark:0.21.0'
+    
 }
 
 tasks.named('test') {
